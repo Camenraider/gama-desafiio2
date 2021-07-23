@@ -1,5 +1,9 @@
 import React from 'react';
 
 export default function Carrinho(props){
-    return <div>Carrinho</div>;
+    return (
+        <aside className="block col-1">
+            <h2>Itens do carrinho</h2>
+        </aside>
+    );
 }
