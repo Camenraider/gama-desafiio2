@@ -2,7 +2,7 @@ import React from 'react';
 
 export default function Product(props) {
 
-    const {product} = props;
+    const {product, onAdd} = props;
 
     return (
         <div>
@@ -10,7 +10,7 @@ export default function Product(props) {
             <h3>{product.name}</h3>
             <div>R${product.price}</div>
             <div>
-                <button>Adicionar ao Carrinho</button>
+                <button onClick={()=>onAdd(product)}>Adicionar ao Carrinho</button>
             </div>
         </div>
     )
