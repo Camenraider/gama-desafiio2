@@ -8,6 +8,16 @@ export default function Carrinho(props){
     const shippingPrice = itemsPrice > 2000 ? 0 : 50;
     const totalPrice = itemsPrice + taxPrice + shippingPrice;
 
+    const cesta = cartItems;
+    const cestaName = [];
+    cesta.map((cartItems) => {cestaName.push(cartItems.name)});
+
+    localStorage.setItem('NomeProduto', JSON.stringify(cestaName));
+    localStorage.setItem('carrinho' , JSON.stringify(cartItems));
+    localStorage.setItem('imposto' , JSON.stringify(taxPrice));
+    localStorage.setItem('envio' , JSON.stringify(shippingPrice));
+    localStorage.setItem('total' , JSON.stringify(totalPrice));
+
     return (
         <aside className="block col-1">
             <h2>Itens do carrinho</h2>
@@ -54,7 +64,7 @@ export default function Carrinho(props){
                 </div> 
             </div>
             <div>
-                <button onClick={()=> alert('Finalizar a compra')}>Finalizar</button>
+                {cartItems.length === 0 ? '' : <button onClick={()=> alert('Finalizar a compra')}>Finalizar</button>}
             </div>
         </aside>
     );
